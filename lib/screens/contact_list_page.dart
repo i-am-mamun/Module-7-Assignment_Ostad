@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../models/contact.dart';
 
+const _appBarColor = Color(0xFF5B7889);
+const _cardColor = Color(0xFFF3F5F7);
+const _nameColor = Color(0xFFE55D50);
+const _personColor = Color(0xFF6D4C41);
+
 class ContactListPage extends StatefulWidget {
   const ContactListPage({super.key});
 
@@ -35,8 +40,12 @@ class _ContactListPageState extends State<ContactListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Contact List'),
+        title: const Text(
+          'Contact List',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
+        backgroundColor: _appBarColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(12),
@@ -69,6 +78,10 @@ class _ContactListPageState extends State<ContactListPage> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: _addContact,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: _appBarColor,
+                        foregroundColor: Colors.white,
+                      ),
                       child: const Text('Add'),
                     ),
                   ),
@@ -82,14 +95,29 @@ class _ContactListPageState extends State<ContactListPage> {
                 itemBuilder: (context, index) {
                   final contact = _contacts[index];
                   return Card(
+                    color: _cardColor,
+                    elevation: 0,
+                    margin: const EdgeInsets.only(bottom: 8),
                     child: ListTile(
-                      leading: const Icon(Icons.person),
+                      leading: const Icon(
+                        Icons.person,
+                        color: _personColor,
+                      ),
                       title: Text(
                         contact.name,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                          color: _nameColor,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      subtitle: Text(contact.phone),
-                      trailing: const Icon(Icons.phone),
+                      subtitle: Text(
+                        contact.phone,
+                        style: const TextStyle(color: Colors.grey),
+                      ),
+                      trailing: const Icon(
+                        Icons.phone,
+                        color: Colors.blue,
+                      ),
                     ),
                   );
                 },
