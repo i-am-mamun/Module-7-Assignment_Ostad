@@ -4,3 +4,7 @@
 .packages
 /build/
 /coverage/
+.idea/
+*.iml
+/android/local.properties
+/ios/Flutter/.last_build_id
