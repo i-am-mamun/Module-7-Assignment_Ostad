@@ -81,6 +81,9 @@ class _ContactListPageState extends State<ContactListPage> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: _appBarColor,
                         foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
                       ),
                       child: const Text('Add'),
                     ),
