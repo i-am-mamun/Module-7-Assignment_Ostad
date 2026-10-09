@@ -81,9 +81,16 @@ class _ContactListPageState extends State<ContactListPage> {
                 itemCount: _contacts.length,
                 itemBuilder: (context, index) {
                   final contact = _contacts[index];
-                  return ListTile(
-                    title: Text(contact.name),
-                    subtitle: Text(contact.phone),
+                  return Card(
+                    child: ListTile(
+                      leading: const Icon(Icons.person),
+                      title: Text(
+                        contact.name,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text(contact.phone),
+                      trailing: const Icon(Icons.phone),
+                    ),
                   );
                 },
               ),
